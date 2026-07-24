@@ -1,2 +1,15 @@
 services:
-  $END$
+  mysql:
+    image: mysql:8.4
+    container_name: url-shortener-db
+    environment:
+      MYSQL_DATABASE: url_shortener
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: ADMIN123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+volumes:
+  mysql_data:
